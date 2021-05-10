@@ -150,7 +150,7 @@ void ChatBotPanelDialog::AddDialogItem(wxString text, bool isFromUser)
     ChatBotPanelDialogItem *item = new ChatBotPanelDialogItem(this, text, isFromUser);
     _dialogSizer->Add(item, 0, wxALL | (isFromUser == true ? wxALIGN_LEFT : wxALIGN_RIGHT), 8);
     _dialogSizer->Layout();
-
+    std::cout<<"Reached Here\n";
     // make scrollbar show up
     this->FitInside(); // ask the sizer about the needed size
     this->SetScrollRate(5, 5);
@@ -164,7 +164,9 @@ void ChatBotPanelDialog::AddDialogItem(wxString text, bool isFromUser)
 }
 
 void ChatBotPanelDialog::PrintChatbotResponse(std::string response)
+
 {
+    std::cout<<"Inside PrintChatbotResponse"<<'\n';
     // convert string into wxString and add dialog element
     wxString botText(response.c_str(), wxConvUTF8);
     AddDialogItem(botText, false);

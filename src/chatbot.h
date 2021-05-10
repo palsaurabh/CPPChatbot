@@ -48,7 +48,11 @@ public:
     void SetRootNode(GraphNode *rootNode) { _rootNode = rootNode; }
     void SetChatLogicHandle(ChatLogic *chatLogic) { _chatLogic = chatLogic; }
     ChatLogic* GetChatLogicHandle() { return _chatLogic; }
-    wxBitmap *GetImageHandle() { return _image; }
+    wxBitmap *GetImageHandle() {    
+        if(_image == NULL)
+            std::cout<<"Inside GetImageHandle is  NULL"<<'\n';
+
+         return _image; }
 
     // communication
     void ReceiveMessageFromUser(std::string message);
